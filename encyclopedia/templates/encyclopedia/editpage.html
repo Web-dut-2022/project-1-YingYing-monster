@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page
+{% endblock %}
+
+{% block body %}
+
+    <h1>Edit page: {{ entry_title }}</h1>
+    <br>
+    <form action="/edit/{{ entry_title }}/" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <lable for="contentinput">Edit entry's content:</lable>
+            <textarea class="form-control" id="contentinput" row="2" name="content">{{ entry_cont }}</textarea>
+
+        </div>
+        <input class="btn btn-primary" type="submit" value="Save">
+    </form>>
+{% endblock %}
